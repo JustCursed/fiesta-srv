@@ -1,0 +1,59 @@
+syntax = "proto3";
+package fiesta;
+
+option go_package = "void-studio.net/fiesta/pb";
+option java_multiple_files = true;
+option java_package = "net.voidstudio.fiesta";
+
+import "google/protobuf/empty.proto";
+
+service Collector {
+	rpc SaveChatLog(ChatData) returns (google.protobuf.Empty);
+	rpc SaveItemLog(ItemData) returns (google.protobuf.Empty);
+	rpc SaveDeathLog(DeathData) returns (google.protobuf.Empty);
+	rpc SaveMovementLog(MovementData) returns (google.protobuf.Empty);
+	rpc SaveLoggedLog(LoggedData) returns (google.protobuf.Empty);
+}
+
+message ChatData {
+	string player = 1;
+	string message = 2;
+	string server = 3;
+	bool private = 4;
+	string cords = 5;
+	uint64 time = 6;
+}
+
+message ItemData {
+	string player = 1;
+	string item = 2;
+	string server = 3;
+	string cords = 4;
+	uint32 amount = 5;
+	bool action = 6;
+	uint64 time = 7;
+}
+
+message DeathData {
+	string player = 1;
+	string killer = 2;
+	string inventory = 3;
+	string server = 4;
+	string cords = 5;
+	uint64 time = 6;
+}
+
+message MovementData {
+	string player = 1;
+	string from = 2;
+	string to = 3;
+	uint64 time = 4;
+}
+
+message LoggedData {
+	string player = 1;
+	string server = 2;
+	bool action = 3;
+	string cords = 4;
+	uint64 time = 5;
+}

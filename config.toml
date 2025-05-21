@@ -1,0 +1,7 @@
+[database]
+address = "157.180.12.50:8397"
+password = "tfOOk9zepF8Fweq6q2sxYC7"
+username = "fiesta"
+
+[general]
+address = "127.0.0.1:32189"
